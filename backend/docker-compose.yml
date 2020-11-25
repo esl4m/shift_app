@@ -1,0 +1,75 @@
+version: '3.1'
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  localnetwork:
+    driver: bridge
+
+services:
+  # MySQL Service
+  shiftdb:
+    image: mysql:5.7
+    container_name: shiftdb
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "33066:33066"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shift
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - ./dbdata:/var/lib/mysql/
+      # - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - localnetwork
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "3001:8080"
+    depends_on:
+      - shiftdb
+    networks:
+      - localnetwork
+
+  # Nginx Service
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - localnetwork
+
+  # web service
+  php_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_app
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3000:3000"
+    working_dir: /var/www
+    depends_on:
+      - shiftdb
+    volumes:
+      - ./:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - localnetwork
+    command: bash -c 'composer update && php artisan serve --host 0.0.0.0:3000'
