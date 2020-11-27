@@ -27,6 +27,8 @@ class QuestionsFactory extends Factory
             'dimension' => $this->faker->name,
             'direction' => $this->faker->name,
             'meaning' => $this->faker->name,
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now(),
         ];

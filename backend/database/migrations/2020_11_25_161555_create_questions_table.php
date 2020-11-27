@@ -20,6 +20,8 @@ class CreateQuestionsTable extends Migration
             $table->string('dimension');
             $table->string('direction');
             $table->string('meaning');
+            $table->string('min_rank')->nullable();
+            $table->string('max_rank')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

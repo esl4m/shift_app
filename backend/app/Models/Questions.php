@@ -21,5 +21,7 @@ class Questions extends Model
         'dimension',
         'direction',
         'meaning',
+        'min_rank',
+        'max_rank',
     ];
 }

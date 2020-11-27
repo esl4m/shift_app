@@ -26,6 +26,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'EI',
             'direction' => '1',
             'meaning' => 'I',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
         
@@ -35,6 +37,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'SN',
             'direction' => '-1',
             'meaning' => 'S',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
         
@@ -44,6 +48,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'TF',
             'direction' => '1',
             'meaning' => 'F',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
             
@@ -53,6 +59,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'EI',
             'direction' => '-1',
             'meaning' => 'E',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
         
@@ -62,6 +70,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'SN',
             'direction' => '1',
             'meaning' => 'N',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
         
@@ -71,6 +81,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'JP',
             'direction' => '1',
             'meaning' => 'P',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
         
@@ -80,6 +92,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'TF',
             'direction' => '-1',
             'meaning' => 'T',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
             
@@ -89,6 +103,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'JP',
             'direction' => '-1',
             'meaning' => 'J',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
         
@@ -98,6 +114,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'EI',
             'direction' => '-1',
             'meaning' => 'E',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
             
@@ -107,6 +125,8 @@ class QuestionsSeeder extends Seeder
             'dimension' => 'JP',
             'direction' => '1',
             'meaning' => 'P',
+            'min_rank' => 1,
+            'max_rank' => 7,
             'created_at' => now(),
             'updated_at' => now()));
     }
