@@ -32,13 +32,16 @@ class QuestionsController extends Controller
                 'text' => 'required',
             ]);
             $question = Questions::create($request->all());
-            $this->initResponse('Question created', true, 200, 'success');
+            return response()->json([
+                'message'=> 'question added',
+                'data' => $question]);
         }
         catch(Exception $e){
-            $this->initResponse('Question not created', $e->getMessage(), 400, 'error');
+            return response()->json([
+                'message'=> 'Error - Question not created',
+                'data' => $e->getMessage()
+                ]);
         }
-
-        return response()->json($this->response, $this->code);
     }
 
     /**
@@ -50,13 +53,16 @@ class QuestionsController extends Controller
     public function show($id)
     {
         try {
-            $question = Questions::findOrFail($id);
-            $this->initResponse('Question retrieved', true, 200, 'data');
+            $data = Questions::findOrFail($id);
+            return response()->json([
+                'message'=> 'question found',
+                'data' => $data]);
         }
         catch(Exception $e){
-            $this->initResponse('Question not retrieved', $e->getMessage(), 400, 'error');
+            return response()->json([
+                'message'=> 'Error - Question not retrieved',
+                'data' => $e->getMessage()]);
         }
-        return response()->json($this->response, $this->code);
     }
 
     /**
@@ -103,11 +109,10 @@ class QuestionsController extends Controller
     {
         try {
             Questions::where('id', $id)->delete();
-            $this->initResponse('Question deleted', true, 200, 'success');
+            return response()->json('Question deleted');
         }
         catch(Exception $e){
-            $this->initResponse('Question not deleted', $e->getMessage(), 400, 'error');
+            return response()->json('Error - Question not deleted');
         }
-        return response()->json($this->response, $this->code);
     }
 }
