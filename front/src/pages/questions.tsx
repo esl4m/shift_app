@@ -2,6 +2,7 @@
 import React from 'react';
 
 import styles from './questions.css';
+import { fetchQuestions } from '../services/questions';
 
 export default function() {
   return (
