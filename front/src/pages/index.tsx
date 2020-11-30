@@ -5,12 +5,11 @@ export default function() {
   return (
     <div className={styles.normal}>
       <div className={styles.welcome} />
+      <h1>SHIFT - Technical Interview Challenge</h1>
       <ul className={styles.list}>
-        <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
+        <li>To get your exam started</li>
         <li>
-          <a href="https://umijs.org/guide/getting-started.html">
-            Getting Started
-          </a>
+          <a href="/questions"> Click here </a>
         </li>
       </ul>
     </div>
