@@ -69,7 +69,6 @@ services:
       - shiftdb
     volumes:
       - ./:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - localnetwork
     command: bash -c 'composer update && php artisan serve --host 0.0.0.0:3000'
