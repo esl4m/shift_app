@@ -71,4 +71,4 @@ services:
       - ./:/var/www
     networks:
       - localnetwork
-    command: bash -c 'composer update && php artisan serve --host 0.0.0.0:3000'
+    command: bash -c 'composer update && php artisan migrate && php artisan db:seed && php artisan serve --host 0.0.0.0:3000'
